@@ -1,8 +1,11 @@
 const express = require("express");
+require("dotenv").config();
+const connectDB = require("./config/db");
 
 const app = express();
 
-// Home route
+connectDB();
+
 app.get("/", (req, res) => {
   res.json({
     success: true,
@@ -10,15 +13,8 @@ app.get("/", (req, res) => {
   });
 });
 
-// About route
-app.get("/about", (req, res) => {
-  res.json({
-    success: true,
-    message: "LogicKart backend about page",
-  });
-});
+const PORT = process.env.PORT || 5000;
 
-// Start server
-app.listen(3002, () => {
-  console.log("Server running on port 3002");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
