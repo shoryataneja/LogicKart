@@ -84,9 +84,56 @@ const getProductById = async (req, res) => {
     });
   }
 };
+// @desc    Update product
+// @route   PUT /api/products/:id
+// @access  Public (for now)
+const updateProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Validate ID format
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product ID",
+      });
+    }
+
+    const product = await Product.findById(id);
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
+    }
+
+    // Update only provided fields
+    const { name, price, category, description, stock } = req.body;
+
+    if (name !== undefined) product.name = name;
+    if (price !== undefined) product.price = price;
+    if (category !== undefined) product.category = category;
+    if (description !== undefined) product.description = description;
+    if (stock !== undefined) product.stock = stock;
+
+    const updatedProduct = await product.save();
+
+    res.status(200).json({
+      success: true,
+      data: updatedProduct,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};
 
 module.exports = {
   getProducts,
   createProduct,
-  getProductById
+  getProductById,
+  updateProduct
 };
