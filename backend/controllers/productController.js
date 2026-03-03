@@ -20,6 +20,39 @@ const getProducts = async (req, res) => {
   }
 };
 
+const createProduct = async (req, res) => {
+  try {
+    const { name, price, category, description, stock } = req.body;
+
+    // Basic validation
+    if (!name || !price || !category) {
+      return res.status(400).json({
+        success: false,
+        message: "Name, price and category are required",
+      });
+    }
+
+    const product = await Product.create({
+      name,
+      price,
+      category,
+      description,
+      stock,
+    });
+
+    res.status(201).json({
+      success: true,
+      data: product,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};
+
 module.exports = {
   getProducts,
+  createProduct
 };
