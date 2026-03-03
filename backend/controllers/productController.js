@@ -84,9 +84,6 @@ const getProductById = async (req, res) => {
     });
   }
 };
-// @desc    Update product
-// @route   PUT /api/products/:id
-// @access  Public (for now)
 const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -131,9 +128,45 @@ const updateProduct = async (req, res) => {
   }
 };
 
+const deleteProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Validate ID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product ID",
+      });
+    }
+
+    const product = await Product.findById(id);
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
+    }
+
+    await product.deleteOne();
+
+    res.status(200).json({
+      success: true,
+      message: "Product deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};
+
 module.exports = {
   getProducts,
   createProduct,
   getProductById,
-  updateProduct
+  updateProduct,
+  deleteProduct
 };
