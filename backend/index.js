@@ -1,13 +1,16 @@
 const express = require("express");
 require("dotenv").config();
 const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
+
 
 const app = express();
 
 connectDB();
 
 app.use(express.json());
+app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.json({
