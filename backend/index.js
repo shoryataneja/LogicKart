@@ -3,7 +3,7 @@ require("dotenv").config();
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
-const protect = require("./middleware/middleware");
+const protect = require("./middleware/authMiddleware");
 
 const app = express();
 
