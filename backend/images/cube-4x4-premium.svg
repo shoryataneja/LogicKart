@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#f8f8f8"/>
+  <ellipse cx="200" cy="348" rx="100" ry="14" fill="#d5d5d5"/>
+  <!-- Body — black -->
+  <polygon points="55,135 200,55 345,135 345,285 200,365 55,285" fill="#111"/>
+  <!-- FRONT — 4x4 blue tiles -->
+  <polygon points="62,140 92,124 92,158 62,174" fill="#1565c0"/><polygon points="97,122 127,106 127,140 97,156" fill="#1565c0"/>
+  <polygon points="132,104 162,88 162,122 132,138" fill="#1565c0"/><polygon points="167,86 197,70 197,104 167,120" fill="#1565c0"/>
+  <polygon points="62,180 92,164 92,198 62,214" fill="#1565c0"/><polygon points="97,162 127,146 127,180 97,196" fill="#1565c0"/>
+  <polygon points="132,144 162,128 162,162 132,178" fill="#1565c0"/><polygon points="167,126 197,110 197,144 167,160" fill="#1565c0"/>
+  <polygon points="62,220 92,204 92,238 62,254" fill="#1565c0"/><polygon points="97,202 127,186 127,220 97,236" fill="#1565c0"/>
+  <polygon points="132,184 162,168 162,202 132,218" fill="#1565c0"/><polygon points="167,166 197,150 197,184 167,200" fill="#1565c0"/>
+  <polygon points="62,260 92,244 92,278 62,294" fill="#1565c0"/><polygon points="97,242 127,226 127,260 97,276" fill="#1565c0"/>
+  <polygon points="132,224 162,208 162,242 132,258" fill="#1565c0"/><polygon points="167,206 197,190 197,224 167,240" fill="#1565c0"/>
+  <!-- TOP — yellow tiles -->
+  <polygon points="75,127 100,114 125,127 100,140" fill="#fdd835"/><polygon points="110,109 135,96 160,109 135,122" fill="#fdd835"/>
+  <polygon points="145,91 170,78 195,91 170,104" fill="#fdd835"/><polygon points="180,73 205,60 230,73 205,86" fill="#fdd835"/>
+  <polygon points="75,142 100,129 125,142 100,155" fill="#fbc02d"/><polygon points="110,124 135,111 160,124 135,137" fill="#fbc02d"/>
+  <polygon points="145,106 170,93 195,106 170,119" fill="#fbc02d"/><polygon points="180,88 205,75 230,88 205,101" fill="#fbc02d"/>
+  <polygon points="75,157 100,144 125,157 100,170" fill="#fdd835"/><polygon points="110,139 135,126 160,139 135,152" fill="#fdd835"/>
+  <polygon points="145,121 170,108 195,121 170,134" fill="#fdd835"/><polygon points="180,103 205,90 230,103 205,116" fill="#fdd835"/>
+  <polygon points="75,172 100,159 125,172 100,185" fill="#fbc02d"/><polygon points="110,154 135,141 160,154 135,167" fill="#fbc02d"/>
+  <polygon points="145,136 170,123 195,136 170,149" fill="#fbc02d"/><polygon points="180,118 205,105 230,118 205,131" fill="#fbc02d"/>
+  <!-- RIGHT — red tiles -->
+  <polygon points="203,70 228,83 228,117 203,104" fill="#c62828"/><polygon points="233,85 258,98 258,132 233,119" fill="#c62828"/>
+  <polygon points="263,100 288,113 288,147 263,134" fill="#c62828"/><polygon points="293,115 318,128 318,162 293,149" fill="#c62828"/>
+  <polygon points="203,110 228,123 228,157 203,144" fill="#c62828"/><polygon points="233,125 258,138 258,172 233,159" fill="#c62828"/>
+  <polygon points="263,140 288,153 288,187 263,174" fill="#c62828"/><polygon points="293,155 318,168 318,202 293,189" fill="#c62828"/>
+  <polygon points="203,150 228,163 228,197 203,184" fill="#c62828"/><polygon points="233,165 258,178 258,212 233,199" fill="#c62828"/>
+  <polygon points="263,180 288,193 288,227 263,214" fill="#c62828"/><polygon points="293,195 318,208 318,242 293,229" fill="#c62828"/>
+  <polygon points="203,190 228,203 228,237 203,224" fill="#c62828"/><polygon points="233,205 258,218 258,252 233,239" fill="#c62828"/>
+  <polygon points="263,220 288,233 288,267 263,254" fill="#c62828"/><polygon points="293,235 318,248 318,282 293,269" fill="#c62828"/>
+  <!-- Grid lines -->
+  <line x1="92" y1="124" x2="92" y2="278" stroke="#111" stroke-width="2.5"/>
+  <line x1="127" y1="106" x2="127" y2="260" stroke="#111" stroke-width="2.5"/>
+  <line x1="162" y1="88" x2="162" y2="242" stroke="#111" stroke-width="2.5"/>
+  <line x1="62" y1="177" x2="197" y2="107" stroke="#111" stroke-width="2.5"/>
+  <line x1="62" y1="217" x2="197" y2="147" stroke="#111" stroke-width="2.5"/>
+  <line x1="62" y1="257" x2="197" y2="187" stroke="#111" stroke-width="2.5"/>
+  <line x1="228" y1="83" x2="228" y2="237" stroke="#111" stroke-width="2.5"/>
+  <line x1="258" y1="98" x2="258" y2="252" stroke="#111" stroke-width="2.5"/>
+  <line x1="288" y1="113" x2="288" y2="267" stroke="#111" stroke-width="2.5"/>
+  <line x1="203" y1="144" x2="318" y2="162" stroke="#111" stroke-width="2.5"/>
+  <line x1="203" y1="184" x2="318" y2="202" stroke="#111" stroke-width="2.5"/>
+  <line x1="203" y1="224" x2="318" y2="242" stroke="#111" stroke-width="2.5"/>
+  <!-- Magnet dots -->
+  <circle cx="127" cy="192" r="4" fill="#e53935"/>
+  <circle cx="162" cy="170" r="4" fill="#e53935"/>
+  <circle cx="258" cy="175" r="4" fill="#e53935"/>
+  <!-- GAN badge -->
+  <rect x="168" y="188" width="36" height="14" rx="3" fill="#ffffff" opacity="0.9"/>
+  <text x="186" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#111" font-weight="bold">GAN</text>
+  <text x="200" y="385" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" fill="#888" font-weight="500">4×4 Magnetic Speed Cube</text>
+</svg>

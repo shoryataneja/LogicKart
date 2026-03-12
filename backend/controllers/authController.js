@@ -102,21 +102,34 @@ const loginUser = async (req, res) => {
 const getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
-
-    res.status(200).json({
-      success: true,
-      data: user
-    });
-
+    res.status(200).json({ success: true, data: user });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Server error"
-    });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
-module.exports = {
-  registerUser,
-  loginUser,
-  getMe
+
+const updateProfile = async (req, res) => {
+  try {
+    const { name, email } = req.body;
+
+    // Check email not taken by another user
+    if (email) {
+      const existing = await User.findOne({ email });
+      if (existing && existing._id.toString() !== req.user.id) {
+        return res.status(400).json({ success: false, message: "Email already in use" });
+      }
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.user.id,
+      { ...(name && { name }), ...(email && { email }) },
+      { new: true, runValidators: true }
+    ).select("-password");
+
+    res.status(200).json({ success: true, data: user });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Server error" });
+  }
 };
+
+module.exports = { registerUser, loginUser, getMe, updateProfile };

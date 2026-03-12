@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#ffffff"/>
+  <ellipse cx="200" cy="368" rx="120" ry="11" fill="#e0e0e0"/>
+  <!-- Board -->
+  <rect x="55" y="55" width="290" height="290" rx="6" fill="#f5f5f5" stroke="#333" stroke-width="3"/>
+  <!-- 9x9 grid lines thin -->
+  <line x1="87"  y1="55"  x2="87"  y2="345" stroke="#bbb" stroke-width="1"/>
+  <line x1="119" y1="55"  x2="119" y2="345" stroke="#bbb" stroke-width="1"/>
+  <line x1="151" y1="55"  x2="151" y2="345" stroke="#333" stroke-width="2.5"/>
+  <line x1="183" y1="55"  x2="183" y2="345" stroke="#bbb" stroke-width="1"/>
+  <line x1="215" y1="55"  x2="215" y2="345" stroke="#bbb" stroke-width="1"/>
+  <line x1="247" y1="55"  x2="247" y2="345" stroke="#333" stroke-width="2.5"/>
+  <line x1="279" y1="55"  x2="279" y2="345" stroke="#bbb" stroke-width="1"/>
+  <line x1="311" y1="55"  x2="311" y2="345" stroke="#bbb" stroke-width="1"/>
+  <line x1="55"  y1="87"  x2="345" y2="87"  stroke="#bbb" stroke-width="1"/>
+  <line x1="55"  y1="119" x2="345" y2="119" stroke="#bbb" stroke-width="1"/>
+  <line x1="55"  y1="151" x2="345" y2="151" stroke="#333" stroke-width="2.5"/>
+  <line x1="55"  y1="183" x2="345" y2="183" stroke="#bbb" stroke-width="1"/>
+  <line x1="55"  y1="215" x2="345" y2="215" stroke="#bbb" stroke-width="1"/>
+  <line x1="55"  y1="247" x2="345" y2="247" stroke="#333" stroke-width="2.5"/>
+  <line x1="55"  y1="279" x2="345" y2="279" stroke="#bbb" stroke-width="1"/>
+  <line x1="55"  y1="311" x2="345" y2="311" stroke="#bbb" stroke-width="1"/>
+  <!-- Numbers — a realistic partial sudoku -->
+  <text x="71"  y="80"  text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">5</text>
+  <text x="103" y="80"  text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">3</text>
+  <text x="183" y="80"  text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">7</text>
+  <text x="71"  y="112" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">6</text>
+  <text x="183" y="112" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">1</text>
+  <text x="215" y="112" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">9</text>
+  <text x="247" y="112" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">5</text>
+  <text x="103" y="144" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">9</text>
+  <text x="279" y="144" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">6</text>
+  <text x="71"  y="176" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">8</text>
+  <text x="215" y="176" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">6</text>
+  <text x="311" y="176" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">3</text>
+  <text x="103" y="208" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">4</text>
+  <text x="279" y="208" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">8</text>
+  <text x="71"  y="240" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">7</text>
+  <text x="215" y="240" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">2</text>
+  <text x="311" y="240" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">6</text>
+  <text x="103" y="272" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">6</text>
+  <text x="279" y="272" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">2</text>
+  <text x="311" y="272" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">8</text>
+  <text x="183" y="304" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">4</text>
+  <text x="71"  y="336" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">1</text>
+  <text x="103" y="336" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">9</text>
+  <text x="247" y="336" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">5</text>
+  <text x="311" y="336" text-anchor="middle" font-family="Arial" font-size="18" fill="#1565c0" font-weight="bold">9</text>
+  <text x="200" y="390" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" fill="#888" font-weight="500">Sudoku Puzzle Board</text>
+</svg>

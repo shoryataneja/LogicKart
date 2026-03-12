@@ -167,7 +167,6 @@ module.exports = {
   getProducts,
   getProductById,
   createProduct,
-  getProductById,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 };

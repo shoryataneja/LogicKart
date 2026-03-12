@@ -1,0 +1,214 @@
+name: LogicKart CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main", "release/*"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  AWS_REGION: us-east-1
+  ECR_BACKEND_REPO: logickart-backend
+  ECR_FRONTEND_REPO: logickart-frontend
+  ECS_CLUSTER: logickart-cluster
+  ECS_SERVICE: logickart-service
+  TASK_DEFINITION: ecs-task-definition.json
+  BACKEND_CONTAINER: logickart-backend
+  FRONTEND_CONTAINER: logickart-frontend
+
+jobs:
+  # ─────────────────────────────────────────────────────────
+  # JOB 1 — Backend CI (runs on every push & PR)
+  # ─────────────────────────────────────────────────────────
+  backend-ci:
+    name: "Backend — Install & Check"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Syntax check
+        run: node --check index.js
+
+      - name: Verify Dockerfile exists
+        run: test -f Dockerfile && echo "Dockerfile found"
+
+  # ─────────────────────────────────────────────────────────
+  # JOB 2 — Frontend CI (runs on every push & PR)
+  # ─────────────────────────────────────────────────────────
+  frontend-ci:
+    name: "Frontend — Install & Build"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production bundle
+        run: npm run build
+        env:
+          VITE_API_URL: http://localhost:3002/api
+
+      - name: Verify build output
+        run: test -d dist && echo "Build output verified"
+
+      - name: Verify Dockerfile exists
+        run: test -f Dockerfile && echo "Dockerfile found"
+
+  # ─────────────────────────────────────────────────────────
+  # JOB 3 — Build & Push Backend to ECR
+  # Only runs on push to main
+  # ─────────────────────────────────────────────────────────
+  build-push-backend:
+    name: "Build & Push Backend → ECR"
+    runs-on: ubuntu-latest
+    needs: [backend-ci, frontend-ci]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    outputs:
+      image: ${{ steps.push.outputs.image }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag & push backend image
+        id: push
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          SHA: ${{ github.sha }}
+        run: |
+          # Build image
+          docker build -t $REGISTRY/$ECR_BACKEND_REPO:$SHA \
+                       -t $REGISTRY/$ECR_BACKEND_REPO:latest \
+                       ./backend
+
+          # Push both tags (SHA for traceability, latest for ECS)
+          docker push $REGISTRY/$ECR_BACKEND_REPO:$SHA
+          docker push $REGISTRY/$ECR_BACKEND_REPO:latest
+
+          echo "image=$REGISTRY/$ECR_BACKEND_REPO:$SHA" >> $GITHUB_OUTPUT
+
+  # ─────────────────────────────────────────────────────────
+  # JOB 4 — Build & Push Frontend to ECR
+  # Only runs on push to main
+  # ─────────────────────────────────────────────────────────
+  build-push-frontend:
+    name: "Build & Push Frontend → ECR"
+    runs-on: ubuntu-latest
+    needs: [backend-ci, frontend-ci]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    outputs:
+      image: ${{ steps.push.outputs.image }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag & push frontend image
+        id: push
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          SHA: ${{ github.sha }}
+        run: |
+          docker build \
+            --build-arg VITE_API_URL=${{ secrets.VITE_API_URL }} \
+            -t $REGISTRY/$ECR_FRONTEND_REPO:$SHA \
+            -t $REGISTRY/$ECR_FRONTEND_REPO:latest \
+            ./frontend
+
+          docker push $REGISTRY/$ECR_FRONTEND_REPO:$SHA
+          docker push $REGISTRY/$ECR_FRONTEND_REPO:latest
+
+          echo "image=$REGISTRY/$ECR_FRONTEND_REPO:$SHA" >> $GITHUB_OUTPUT
+
+  # ─────────────────────────────────────────────────────────
+  # JOB 5 — Deploy to ECS
+  # Updates task definition with new images → rolling deploy
+  # ─────────────────────────────────────────────────────────
+  deploy:
+    name: "Deploy → ECS Fargate"
+    runs-on: ubuntu-latest
+    needs: [build-push-backend, build-push-frontend]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Inject backend image into task definition
+        id: render-backend
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ env.TASK_DEFINITION }}
+          container-name: ${{ env.BACKEND_CONTAINER }}
+          image: ${{ needs.build-push-backend.outputs.image }}
+
+      - name: Inject frontend image into task definition
+        id: render-frontend
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ steps.render-backend.outputs.task-definition }}
+          container-name: ${{ env.FRONTEND_CONTAINER }}
+          image: ${{ needs.build-push-frontend.outputs.image }}
+
+      - name: Deploy to ECS service
+        uses: aws-actions/amazon-ecs-deploy-task-def@v1
+        with:
+          task-definition: ${{ steps.render-frontend.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true

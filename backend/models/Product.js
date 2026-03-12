@@ -21,6 +21,28 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    image: {
+      type: String,
+      default: "",
+    },
+    rating: {
+      type: Number,
+      default: 4.0,
+      min: 1,
+      max: 5,
+    },
+    numReviews: {
+      type: Number,
+      default: 0,
+    },
+    discount: {
+      type: Number,
+      default: 0, // percentage, e.g. 15 means 15% off
+    },
+    brand: {
+      type: String,
+      default: "",
+    },
   },
   {
     timestamps: true,

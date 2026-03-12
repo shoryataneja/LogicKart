@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#f8f8f8"/>
+  <ellipse cx="200" cy="345" rx="95" ry="13" fill="#d5d5d5"/>
+
+  <!-- Black body -->
+  <polygon points="60,140 200,60 340,140 340,280 200,360 60,280" fill="#1a1a1a"/>
+
+  <!-- FRONT FACE — stickerless orange tiles -->
+  <polygon points="67,145 103,125 103,165 67,185" fill="#ff6d00" rx="3"/>
+  <polygon points="112,122 148,103 148,142 112,162" fill="#ff6d00"/>
+  <polygon points="157,100 193,81 193,119 157,139" fill="#ff6d00"/>
+  <polygon points="67,197 103,178 103,217 67,237" fill="#ff6d00"/>
+  <polygon points="112,174 148,155 148,194 112,214" fill="#ff6d00"/>
+  <polygon points="157,152 193,133 193,171 157,191" fill="#ff6d00"/>
+  <polygon points="67,249 103,230 103,269 67,289" fill="#ff6d00"/>
+  <polygon points="112,227 148,208 148,247 112,267" fill="#ff6d00"/>
+  <polygon points="157,205 193,186 193,224 157,244" fill="#ff6d00"/>
+
+  <!-- TOP FACE — white tiles -->
+  <polygon points="82,133 113,115 148,133 113,149" fill="#ffffff"/>
+  <polygon points="122,112 153,94 188,112 153,129" fill="#ffffff"/>
+  <polygon points="162,91 193,73 228,91 193,108" fill="#ffffff"/>
+  <polygon points="82,153 113,135 148,153 113,169" fill="#eeeeee"/>
+  <polygon points="122,132 153,114 188,132 153,149" fill="#eeeeee"/>
+  <polygon points="162,111 193,93 228,111 193,128" fill="#eeeeee"/>
+  <polygon points="82,173 113,155 148,173 113,189" fill="#ffffff"/>
+  <polygon points="122,152 153,134 188,152 153,169" fill="#ffffff"/>
+  <polygon points="162,131 193,113 228,131 193,148" fill="#ffffff"/>
+
+  <!-- RIGHT FACE — green tiles -->
+  <polygon points="207,80 243,100 243,140 207,120" fill="#00c853"/>
+  <polygon points="252,102 288,122 288,162 252,142" fill="#00c853"/>
+  <polygon points="297,124 333,144 333,184 297,164" fill="#00c853"/>
+  <polygon points="207,132 243,152 243,192 207,172" fill="#00c853"/>
+  <polygon points="252,154 288,174 288,214 252,194" fill="#00c853"/>
+  <polygon points="297,176 333,196 333,236 297,216" fill="#00c853"/>
+  <polygon points="207,184 243,204 243,244 207,224" fill="#00c853"/>
+  <polygon points="252,206 288,226 288,266 252,246" fill="#00c853"/>
+  <polygon points="297,228 333,248 333,288 297,268" fill="#00c853"/>
+
+  <!-- Grid lines -->
+  <line x1="105" y1="122" x2="105" y2="272" stroke="#111" stroke-width="3"/>
+  <line x1="150" y1="100" x2="150" y2="250" stroke="#111" stroke-width="3"/>
+  <line x1="65" y1="192" x2="195" y2="130" stroke="#111" stroke-width="3"/>
+  <line x1="65" y1="244" x2="195" y2="182" stroke="#111" stroke-width="3"/>
+  <line x1="245" y1="98" x2="245" y2="247" stroke="#111" stroke-width="3"/>
+  <line x1="290" y1="120" x2="290" y2="269" stroke="#111" stroke-width="3"/>
+  <line x1="205" y1="175" x2="335" y2="194" stroke="#111" stroke-width="3"/>
+  <line x1="205" y1="227" x2="335" y2="246" stroke="#111" stroke-width="3"/>
+
+  <!-- Magnet indicator dots -->
+  <circle cx="105" cy="192" r="4" fill="#e53935"/>
+  <circle cx="150" cy="170" r="4" fill="#e53935"/>
+  <circle cx="245" cy="175" r="4" fill="#e53935"/>
+
+  <text x="200" y="382" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" fill="#666" font-weight="600">3×3 Magnetic Speed Cube</text>
+</svg>

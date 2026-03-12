@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#ffffff"/>
+  <ellipse cx="200" cy="350" rx="105" ry="14" fill="#e0e0e0"/>
+  <!-- Body -->
+  <polygon points="50,130 200,50 350,130 350,290 200,370 50,290" fill="#111"/>
+
+  <!-- FRONT — 5x5 purple, 25 tiles, ~26px wide each -->
+  <!-- Row 1 -->
+  <polygon points="56,135 78,124 78,150 56,161" fill="#6a1b9a"/><polygon points="83,122 105,111 105,137 83,148" fill="#7b1fa2"/>
+  <polygon points="110,109 132,98 132,124 110,135" fill="#6a1b9a"/><polygon points="137,96 159,85 159,111 137,122" fill="#7b1fa2"/>
+  <polygon points="164,83 186,72 186,98 164,109" fill="#6a1b9a"/>
+  <!-- Row 2 -->
+  <polygon points="56,167 78,156 78,182 56,193" fill="#6a1b9a"/><polygon points="83,154 105,143 105,169 83,180" fill="#7b1fa2"/>
+  <polygon points="110,141 132,130 132,156 110,167" fill="#6a1b9a"/><polygon points="137,128 159,117 159,143 137,154" fill="#7b1fa2"/>
+  <polygon points="164,115 186,104 186,130 164,141" fill="#6a1b9a"/>
+  <!-- Row 3 -->
+  <polygon points="56,199 78,188 78,214 56,225" fill="#6a1b9a"/><polygon points="83,186 105,175 105,201 83,212" fill="#7b1fa2"/>
+  <polygon points="110,173 132,162 132,188 110,199" fill="#6a1b9a"/><polygon points="137,160 159,149 159,175 137,186" fill="#7b1fa2"/>
+  <polygon points="164,147 186,136 186,162 164,173" fill="#6a1b9a"/>
+  <!-- Row 4 -->
+  <polygon points="56,231 78,220 78,246 56,257" fill="#6a1b9a"/><polygon points="83,218 105,207 105,233 83,244" fill="#7b1fa2"/>
+  <polygon points="110,205 132,194 132,220 110,231" fill="#6a1b9a"/><polygon points="137,192 159,181 159,207 137,218" fill="#7b1fa2"/>
+  <polygon points="164,179 186,168 186,194 164,205" fill="#6a1b9a"/>
+  <!-- Row 5 -->
+  <polygon points="56,263 78,252 78,278 56,289" fill="#6a1b9a"/><polygon points="83,250 105,239 105,265 83,276" fill="#7b1fa2"/>
+  <polygon points="110,237 132,226 132,252 110,263" fill="#6a1b9a"/><polygon points="137,224 159,213 159,239 137,250" fill="#7b1fa2"/>
+  <polygon points="164,211 186,200 186,226 164,237" fill="#6a1b9a"/>
+
+  <!-- TOP — 5x5 white/cream -->
+  <polygon points="68,123 88,113 108,123 88,133" fill="#fff"/><polygon points="93,110 113,100 133,110 113,120" fill="#fffde7"/>
+  <polygon points="118,97 138,87 158,97 138,107" fill="#fff"/><polygon points="143,84 163,74 183,84 163,94" fill="#fffde7"/>
+  <polygon points="168,71 188,61 208,71 188,81" fill="#fff"/>
+  <polygon points="68,134 88,124 108,134 88,144" fill="#fffde7"/><polygon points="93,121 113,111 133,121 113,131" fill="#fff"/>
+  <polygon points="118,108 138,98 158,108 138,118" fill="#fffde7"/><polygon points="143,95 163,85 183,95 163,105" fill="#fff"/>
+  <polygon points="168,82 188,72 208,82 188,92" fill="#fffde7"/>
+  <polygon points="68,145 88,135 108,145 88,155" fill="#fff"/><polygon points="93,132 113,122 133,132 113,142" fill="#fffde7"/>
+  <polygon points="118,119 138,109 158,119 138,129" fill="#fff"/><polygon points="143,106 163,96 183,106 163,116" fill="#fffde7"/>
+  <polygon points="168,93 188,83 208,93 188,103" fill="#fff"/>
+  <polygon points="68,156 88,146 108,156 88,166" fill="#fffde7"/><polygon points="93,143 113,133 133,143 113,153" fill="#fff"/>
+  <polygon points="118,130 138,120 158,130 138,140" fill="#fffde7"/><polygon points="143,117 163,107 183,117 163,127" fill="#fff"/>
+  <polygon points="168,104 188,94 208,104 188,114" fill="#fffde7"/>
+  <polygon points="68,167 88,157 108,167 88,177" fill="#fff"/><polygon points="93,154 113,144 133,154 113,164" fill="#fffde7"/>
+  <polygon points="118,141 138,131 158,141 138,151" fill="#fff"/><polygon points="143,128 163,118 183,128 163,138" fill="#fffde7"/>
+  <polygon points="168,115 188,105 208,115 188,125" fill="#fff"/>
+
+  <!-- RIGHT — 5x5 red -->
+  <polygon points="192,72 214,83 214,109 192,98" fill="#c62828"/>
+  <polygon points="219,85 241,96 241,122 219,111" fill="#c62828"/>
+  <polygon points="246,98 268,109 268,135 246,124" fill="#c62828"/>
+  <polygon points="273,111 295,122 295,148 273,137" fill="#c62828"/>
+  <polygon points="300,124 322,135 322,161 300,150" fill="#c62828"/>
+  <polygon points="192,104 214,115 214,141 192,130" fill="#c62828"/>
+  <polygon points="219,117 241,128 241,154 219,143" fill="#c62828"/>
+  <polygon points="246,130 268,141 268,167 246,156" fill="#c62828"/>
+  <polygon points="273,143 295,154 295,180 273,169" fill="#c62828"/>
+  <polygon points="300,156 322,167 322,193 300,182" fill="#c62828"/>
+  <polygon points="192,136 214,147 214,173 192,162" fill="#c62828"/>
+  <polygon points="219,149 241,160 241,186 219,175" fill="#c62828"/>
+  <polygon points="246,162 268,173 268,199 246,188" fill="#c62828"/>
+  <polygon points="273,175 295,186 295,212 273,201" fill="#c62828"/>
+  <polygon points="300,188 322,199 322,225 300,214" fill="#c62828"/>
+  <polygon points="192,168 214,179 214,205 192,194" fill="#c62828"/>
+  <polygon points="219,181 241,192 241,218 219,207" fill="#c62828"/>
+  <polygon points="246,194 268,205 268,231 246,220" fill="#c62828"/>
+  <polygon points="273,207 295,218 295,244 273,233" fill="#c62828"/>
+  <polygon points="300,220 322,231 322,257 300,246" fill="#c62828"/>
+  <polygon points="192,200 214,211 214,237 192,226" fill="#c62828"/>
+  <polygon points="219,213 241,224 241,250 219,239" fill="#c62828"/>
+  <polygon points="246,226 268,237 268,263 246,252" fill="#c62828"/>
+  <polygon points="273,239 295,250 295,276 273,265" fill="#c62828"/>
+  <polygon points="300,252 322,263 322,289 300,278" fill="#c62828"/>
+
+  <!-- Grid lines front (4 vertical, 4 horizontal) -->
+  <line x1="78" y1="124" x2="78" y2="278" stroke="#111" stroke-width="1.8"/>
+  <line x1="105" y1="111" x2="105" y2="265" stroke="#111" stroke-width="1.8"/>
+  <line x1="132" y1="98" x2="132" y2="252" stroke="#111" stroke-width="1.8"/>
+  <line x1="159" y1="85" x2="159" y2="239" stroke="#111" stroke-width="1.8"/>
+  <line x1="56" y1="164" x2="186" y2="101" stroke="#111" stroke-width="1.8"/>
+  <line x1="56" y1="196" x2="186" y2="133" stroke="#111" stroke-width="1.8"/>
+  <line x1="56" y1="228" x2="186" y2="165" stroke="#111" stroke-width="1.8"/>
+  <line x1="56" y1="260" x2="186" y2="197" stroke="#111" stroke-width="1.8"/>
+
+  <text x="200" y="387" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="15" fill="#888" font-weight="500">5×5 Rubik's Cube</text>
+</svg>

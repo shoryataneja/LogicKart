@@ -4,20 +4,18 @@ const {
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 } = require("../controllers/productController");
-
-
 const protect = require("../middleware/authMiddleware");
 const adminOnly = require("../middleware/adminMiddleware");
+const { validate, productSchema } = require("../services/validation");
 
 const router = express.Router();
 
 router.get("/", getProducts);
 router.get("/:id", getProductById);
-router.post("/", protect, adminOnly, createProduct);
+router.post("/", protect, adminOnly, validate(productSchema), createProduct);
 router.put("/:id", protect, adminOnly, updateProduct);
 router.delete("/:id", protect, adminOnly, deleteProduct);
-
 
 module.exports = router;
