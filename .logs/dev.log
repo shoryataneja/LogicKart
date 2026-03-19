@@ -3,3 +3,4 @@
 2026-03-14T14:20:00 - add order routes
 2026-03-17T09:45:00 - complete cart controller with get update and remove
 2026-03-17T15:10:00 - update cart routes with all endpoints
+2026-03-19T10:30:00 - add input validation using Joi
