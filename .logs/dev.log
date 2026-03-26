@@ -9,3 +9,4 @@
 2026-03-21T16:30:00 - add update profile endpoint to auth controller
 2026-03-24T09:00:00 - add image field to product model
 2026-03-24T14:00:00 - add self hosted image serving route
+2026-03-26T10:15:00 - add product seed script with 26 products
