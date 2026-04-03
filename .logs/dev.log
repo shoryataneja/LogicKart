@@ -15,3 +15,4 @@
 2026-03-28T13:00:00 - add global styles and Inter font
 2026-04-01T10:00:00 - add auth context and cart context
 2026-04-01T14:30:00 - add toast notification context
+2026-04-03T09:15:00 - add API service layer with axios
