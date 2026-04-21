@@ -25,3 +25,4 @@
 2026-04-14T15:00:00 - add checkout page with mock payment flow
 2026-04-17T09:30:00 - add user dashboard with orders and profile tabs
 2026-04-17T14:00:00 - wire all routes in App.jsx with protected routes
+2026-04-21T10:00:00 - add Dockerfile for backend with multi stage build
