@@ -28,3 +28,4 @@
 2026-04-21T10:00:00 - add Dockerfile for backend with multi stage build
 2026-04-21T13:30:00 - add Dockerfile for frontend with nginx
 2026-04-23T09:00:00 - add ECS task definition for Fargate deployment
+2026-04-23T14:00:00 - add AWS setup script for ECR and ECS automation
