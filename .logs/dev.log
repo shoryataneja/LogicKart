@@ -33,3 +33,4 @@
 2026-04-26T09:45:00 - fix CI trigger to run only on main branch
 2026-04-26T11:00:00 - update backend Dockerfile to use Node 20
 2026-04-26T12:30:00 - update frontend Dockerfile to use Node 20
+2026-04-26T14:00:00 - add health check endpoints to both Dockerfiles
