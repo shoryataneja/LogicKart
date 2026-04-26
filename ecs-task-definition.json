@@ -4,65 +4,54 @@
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "512",
   "memory": "1024",
-  "executionRoleArn": "arn:aws:iam::ACCOUNT_ID:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::703470257611:role/LabRole",
+  "taskRoleArn": "arn:aws:iam::703470257611:role/LabRole",
   "containerDefinitions": [
     {
       "name": "logickart-backend",
-      "image": "ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/logickart-backend:latest",
+      "image": "703470257611.dkr.ecr.us-east-1.amazonaws.com/logickart-backend:latest",
       "essential": true,
-      "portMappings": [
-        {
-          "containerPort": 3002,
-          "hostPort": 3002,
-          "protocol": "tcp"
-        }
-      ],
+      "portMappings": [{"containerPort": 3002, "hostPort": 3002, "protocol": "tcp"}],
       "environment": [
-        { "name": "PORT",     "value": "3002" },
-        { "name": "NODE_ENV", "value": "production" }
+        {"name": "PORT", "value": "3002"},
+        {"name": "NODE_ENV", "value": "production"},
+        {"name": "MONGO_URI", "value": "mongodb+srv://shoryataneja5_db_user:ussRvrLDcR1utUk8@cluster0.u7qq5oe.mongodb.net/?appName=Cluster0"},
+        {"name": "JWT_SECRET", "value": "5d71d2435e44dcaf8f427b301fa798df59bcabe371f012165680b0ff919bc9174a7e577ee9e51059e9be05a9c26d487629fa6dc0ed37c8fef8d49e63918f9462"},
+        {"name": "CLIENT_URL", "value": "*"},
+        {"name": "IMAGE_BASE_URL", "value": "http://localhost:3002/images"}
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group":         "/ecs/logickart-backend",
-          "awslogs-region":        "us-east-1",
-          "awslogs-stream-prefix": "ecs"
+          "awslogs-group": "/ecs/logickart-backend",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
         }
       },
       "healthCheck": {
-        "command":     ["CMD-SHELL", "wget -qO- http://localhost:3002/ || exit 1"],
-        "interval":    30,
-        "timeout":     5,
-        "retries":     3,
-        "startPeriod": 15
+        "command": ["CMD-SHELL", "wget -qO- http://localhost:3002/ || exit 1"],
+        "interval": 30, "timeout": 5, "retries": 3, "startPeriod": 15
       }
     },
     {
       "name": "logickart-frontend",
-      "image": "ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/logickart-frontend:latest",
+      "image": "703470257611.dkr.ecr.us-east-1.amazonaws.com/logickart-frontend:latest",
       "essential": true,
-      "portMappings": [
-        {
-          "containerPort": 80,
-          "hostPort":      80,
-          "protocol":      "tcp"
-        }
-      ],
+      "portMappings": [{"containerPort": 80, "hostPort": 80, "protocol": "tcp"}],
       "environment": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group":         "/ecs/logickart-frontend",
-          "awslogs-region":        "us-east-1",
-          "awslogs-stream-prefix": "ecs"
+          "awslogs-group": "/ecs/logickart-frontend",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
         }
       },
       "healthCheck": {
-        "command":     ["CMD-SHELL", "wget -qO- http://localhost/health || exit 1"],
-        "interval":    30,
-        "timeout":     5,
-        "retries":     3,
-        "startPeriod": 10
+        "command": ["CMD-SHELL", "wget -qO- http://localhost/health || exit 1"],
+        "interval": 30, "timeout": 5, "retries": 3, "startPeriod": 10
       }
     }
   ]
