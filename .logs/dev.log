@@ -30,3 +30,4 @@
 2026-04-23T09:00:00 - add ECS task definition for Fargate deployment
 2026-04-23T14:00:00 - add AWS setup script for ECR and ECS automation
 2026-04-26T08:30:00 - add GitHub Actions CI/CD pipeline workflow
+2026-04-26T09:45:00 - fix CI trigger to run only on main branch
